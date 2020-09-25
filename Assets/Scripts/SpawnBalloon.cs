@@ -4,7 +4,7 @@ using UnityEngine;
 public class SpawnBalloon : MonoBehaviour
 {
     public GameObject balloon;
-    const float spawnPointX = 5f, spawnPointY = 4f;
+    const float spawnPointX = 4f, spawnPointY = 4f;
     const int choicePointSpawn = 1;
 
     void Start()

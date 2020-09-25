@@ -9,7 +9,7 @@ public class MotionBalloon : MonoBehaviour
     private double variableForSine = Math.PI;
     public float speedForSine, speedInY;
     const int turnSpeed = -1;
-    const float balloonLife = 5f;
+    const float balloonLife = 4f;
 
     void Start()
     {
