@@ -4,8 +4,8 @@ using UnityEngine;
 public class SpawnBalloon : MonoBehaviour
 {
     public GameObject balloon;
-    const float spawnPointX = 6f, spawnPointY = 4f;
-    const int choicePointSpawn = 1; 
+    const float spawnPointX = 5f, spawnPointY = 4f;
+    const int choicePointSpawn = 1;
 
     void Start()
     {
@@ -26,7 +26,7 @@ public class SpawnBalloon : MonoBehaviour
                 posistionX = -spawnPointX;
             else
                 posistionX = spawnPointX;
-            Vector3 positionSpawn = new Vector3(posistionX, Random.Range(-spawnPointY, spawnPointY), 1);
+            Vector3 positionSpawn = new Vector3(posistionX, Random.Range(-spawnPointY, spawnPointY), 9);
             Instantiate(balloon, positionSpawn, Quaternion.identity);
             yield return new WaitForSeconds(Random.Range(2, 4));
         }
