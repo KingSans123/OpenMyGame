@@ -6,15 +6,18 @@ using UnityEngine;
 
 public class Board : MonoBehaviour
 {
+    public GameObject[] dots;
     public int numberLvl; 
     public int width, height;
-    public GameObject fireTile,waterTile, emptyTile;
+    public GameObject tilePrefab;
     private Tile[,] allTile;
-    private int[,] level; 
+    private int[,] level;
+    public GameObject[,] allDots; 
 
     void Start()
     {
         allTile = new Tile[width, height];
+        allDots = new GameObject[width, height];
         SetUp(); 
     }
 
@@ -23,24 +26,39 @@ public class Board : MonoBehaviour
     /// </summary>
     private void SetUp()
     {
-        if(numberLvl == 1)
-            level = new int[,] { { 2, 2}, { 0, 0}, { 1, 2 }, { 1, 0 }, { 1, 0 } };
-        else if (numberLvl == 2)
-            level = new int[,] { { 2, 2, 1, 2, 2 }, { 1, 1, 2, 1, 2 }, { 2, 2, 1, 2, 0 }, { 2, 2, 1, 2, 0 } };
-        else if (numberLvl == 3)
-            level = new int[,] { { 2, 2, 1, 2, 2, 0 }, { 1, 1, 2, 2, 1, 2 }, { 2, 2, 1, 0, 0, 0 }, { 2, 2, 1, 2, 0, 0 } };
+        //Change level
+        switch(numberLvl)
+        {
+            case 1: 
+                level = new int[,] { { 2, 2 }, { 0, 0 }, { 2, 1 }, { 1, 0 }, { 1, 0 } };
+                break;
+            case 2:
+                level = new int[,] { { 2, 2, 1, 2, 2 }, { 1, 1, 2, 1, 2 }, { 2, 2, 1, 2, 0 }, { 2, 2, 1, 2, 0 } };
+                break;
+            case 3:
+                level = new int[,] { { 2, 2, 1, 2, 2, 0 }, { 1, 1, 2, 2, 1, 2 }, { 2, 2, 1, 0, 0, 0 }, { 2, 2, 1, 2, 0, 0 } };
+                break;
+        }
 
-        float xPos = transform.position.x, yPos = transform.position.y;
-        for (int x = 0; x < height; x++)
-            for (int y = 0; y < width; y++)
+        //create game board 
+        for (int i = 0; i < width; i++)
+            for (int j = 0; j < height; j++)
             {
-                Vector2 tempPosition = new Vector2(xPos + x,yPos + y);
-                GameObject tileNow;
-                if (level[x, y] == 1) tileNow = fireTile;
-                else if (level[x, y] == 0) tileNow = emptyTile;
-                else tileNow = waterTile;
-                GameObject newTile = Instantiate(tileNow, tempPosition, Quaternion.identity);
-                newTile.transform.parent = transform;
+                Vector2 tempPosition = new Vector2( i, j);
+
+                GameObject newTile = Instantiate(tilePrefab, tempPosition, Quaternion.identity) as GameObject;
+                newTile.transform.parent = this.transform;
+                newTile.name = $"({i},{j})";
+
+                int dotToUse;
+                if (level[i, j] == 0) dotToUse = 0; 
+                else if (level[i, j] == 1) dotToUse = 1;
+                else dotToUse = 2;
+
+                GameObject dot = Instantiate(dots[dotToUse], tempPosition, Quaternion.identity);
+                dot.transform.parent = this.transform;
+                dot.name = $"({i},{j})";
+                allDots[i, j] = dot; 
             }
     }
 }

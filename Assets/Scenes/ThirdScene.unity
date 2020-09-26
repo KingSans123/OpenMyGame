@@ -287,7 +287,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 155058302}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.02, y: 0.013, z: 10}
+  m_LocalPosition: {x: 2, y: 3, z: 10}
   m_LocalScale: {x: 0.4531459, y: 0.44099393, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -735,7 +735,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1328519764}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 2, y: 3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -795,13 +795,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf95cfd066d079040bdb39a7d4a86ec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dots:
+  - {fileID: 1766468805196644448, guid: b7bf0c5a28428c04c8eb22453deac69e, type: 3}
+  - {fileID: 8019377116796817335, guid: 5035d14fa3701674693fdafcb1f9aa78, type: 3}
+  - {fileID: 4532259542729922467, guid: c52283b36f884e7409a31ee78ac44fff, type: 3}
   numberLvl: 3
-  width: 6
-  height: 4
-  fireTile: {fileID: 738224876312991653, guid: 5035d14fa3701674693fdafcb1f9aa78, type: 3}
-  waterTile: {fileID: 1977115333060105892, guid: c52283b36f884e7409a31ee78ac44fff,
-    type: 3}
-  emptyTile: {fileID: 5534469603174998102, guid: b7bf0c5a28428c04c8eb22453deac69e,
+  width: 4
+  height: 6
+  tilePrefab: {fileID: 787848837436317395, guid: ce24da973c464b24a8a5a794d7350622,
     type: 3}
 --- !u!4 &2046247070
 Transform:
@@ -811,7 +812,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2046247068}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.64, y: -2.77, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

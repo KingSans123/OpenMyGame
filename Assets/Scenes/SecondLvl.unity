@@ -196,7 +196,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 74219053}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalPosition: {x: 2, y: 3, z: 10}
   m_LocalScale: {x: 0.44028082, y: 0.44011524, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -449,8 +449,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2083060741}
-        m_MethodName: 
+      - m_Target: {fileID: 2083060742}
+        m_MethodName: ChangeScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -575,7 +575,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1854070576}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 2, y: 3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -714,13 +714,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf95cfd066d079040bdb39a7d4a86ec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dots:
+  - {fileID: 1766468805196644448, guid: b7bf0c5a28428c04c8eb22453deac69e, type: 3}
+  - {fileID: 8019377116796817335, guid: 5035d14fa3701674693fdafcb1f9aa78, type: 3}
+  - {fileID: 4532259542729922467, guid: c52283b36f884e7409a31ee78ac44fff, type: 3}
   numberLvl: 2
-  width: 5
-  height: 4
-  fireTile: {fileID: 738224876312991653, guid: 5035d14fa3701674693fdafcb1f9aa78, type: 3}
-  waterTile: {fileID: 1977115333060105892, guid: c52283b36f884e7409a31ee78ac44fff,
-    type: 3}
-  emptyTile: {fileID: 5534469603174998102, guid: b7bf0c5a28428c04c8eb22453deac69e,
+  width: 4
+  height: 5
+  tilePrefab: {fileID: 787848837436317395, guid: ce24da973c464b24a8a5a794d7350622,
     type: 3}
 --- !u!4 &1973617947
 Transform:
@@ -730,7 +731,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1973617945}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.64, y: -2.77, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

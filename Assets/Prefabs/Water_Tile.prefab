@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1977115333060105892
+--- !u!1 &4532259542729922467
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,25 +8,25 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5778424642652513476}
-  - component: {fileID: 4701326166612142600}
-  - component: {fileID: 4537153989341624861}
-  - component: {fileID: 234526387309802699}
-  - component: {fileID: 3589954548143678545}
+  - component: {fileID: 1672696645793302573}
+  - component: {fileID: 4439047346473653653}
+  - component: {fileID: 4630657144913027110}
+  - component: {fileID: 9153639029481811770}
+  - component: {fileID: 6468052153619202916}
   m_Layer: 0
   m_Name: Water_Tile
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5778424642652513476
+--- !u!4 &1672696645793302573
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1977115333060105892}
+  m_GameObject: {fileID: 4532259542729922467}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.50725, y: -2.379168, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
@@ -34,13 +34,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4701326166612142600
+--- !u!212 &4439047346473653653
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1977115333060105892}
+  m_GameObject: {fileID: 4532259542729922467}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -84,14 +84,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &4537153989341624861
+--- !u!95 &4630657144913027110
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1977115333060105892}
+  m_GameObject: {fileID: 4532259542729922467}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: e52653ed3228bcf4d855d4bc4e08fb20, type: 2}
@@ -103,27 +103,31 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &234526387309802699
+--- !u!114 &9153639029481811770
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1977115333060105892}
+  m_GameObject: {fileID: 4532259542729922467}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f95fea51b0205d4387614f6ee687e49, type: 3}
+  m_Script: {fileID: 11500000, guid: 28df0d68d9448c34a8a060139c08fb90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 4701326166612142600}
-  isSelected: 0
---- !u!61 &3589954548143678545
+  column: 0
+  row: 0
+  targetX: 0
+  targetY: 0
+  isMatched: 0
+  swipeAngle: 0
+--- !u!61 &6468052153619202916
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1977115333060105892}
+  m_GameObject: {fileID: 4532259542729922467}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -141,5 +145,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3, y: 3}
+  m_Size: {x: 2.5, y: 2.5}
   m_EdgeRadius: 0
