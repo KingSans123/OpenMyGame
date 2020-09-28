@@ -3,16 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.UI; 
 
 public class Board : MonoBehaviour
 {
+    public GameObject[,] allDots;
     public GameObject[] dots;
-    public int numberLvl; 
-    public int width, height;
+    public int numberLvl, width, height; 
     public GameObject tilePrefab;
+    public Button buttonClick;
+
+
     private Tile[,] allTile;
     private int[,] level;
-    public GameObject[,] allDots; 
+    private bool allDotsIsEmpty = false; 
 
     void Start()
     {
@@ -21,9 +25,34 @@ public class Board : MonoBehaviour
         SetUp(); 
     }
 
-    /// <summary>
-    /// Gereration level
-    /// </summary>
+    void Update()
+    {
+        CheckingForAllEmpty();
+        if (allDotsIsEmpty)
+        {
+            buttonClick.GetComponent<Button>().onClick.Invoke();
+        }
+    }
+
+    private void CheckingForAllEmpty()
+    {
+        GameObject dot;
+        allDotsIsEmpty = true; 
+        for (int i = 0; i < width; i++)
+            for (int j = 0; j < height; j++)
+            {
+                dot = allDots[i, j];
+                if (dot.tag == "Water" || dot.tag == "Fire")
+                {
+                    allDotsIsEmpty = false;
+                    break; 
+                }
+            }
+    }
+
+        /// <summary>
+        /// Gereration level
+        /// </summary>
     private void SetUp()
     {
         //Change level
@@ -37,6 +66,12 @@ public class Board : MonoBehaviour
                 break;
             case 3:
                 level = new int[,] { { 2, 2, 1, 2, 2, 0 }, { 1, 1, 2, 2, 1, 2 }, { 2, 2, 1, 0, 0, 0 }, { 2, 2, 1, 2, 0, 0 } };
+                break;
+            default:
+                level = new int[width, height];
+                for (int i = 0; i < width; i++)
+                    for (int j = 0; j < height; j++)
+                        level[i, j] = Random.Range(0, 2);
                 break;
         }
 
@@ -62,6 +97,11 @@ public class Board : MonoBehaviour
             }
     }
 
+    /// <summary>
+    /// delete dot 
+    /// </summary>
+    /// <param name="column">column dot</param>
+    /// <param name="row">row dot</param>
     private void DestroyMatchesAt(int column, int row)
     {
         if(allDots[column, row].GetComponent<Dot>().isMatched)
@@ -71,10 +111,16 @@ public class Board : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// delete all dots
+    /// </summary>
     public void DestroyMatches()
     {
         for (int i = 0; i < width; i++)
             for (int j = 0; j < height; j++)
+            {
+                Vector2 tempPosition = new Vector2(i, j);
                 if (allDots[i, j] != dots[0]) DestroyMatchesAt(i, j);
+            }
     }
 }

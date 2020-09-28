@@ -119,8 +119,6 @@ MonoBehaviour:
   row: 0
   targetX: 0
   targetY: 0
-  previousColumn: 0
-  previousRow: 0
   isMatched: 0
   swipeAngle: 0
 --- !u!61 &6468052153619202916

@@ -58,13 +58,19 @@ public class Dot : MonoBehaviour
 
         transform.position = new Vector3(transform.position.x, transform.position.y, -transform.position.x - transform.position.y);
 
+        StartCoroutine(SwipeEmptyTile());
+
         FindMatches();
         if (isMatched)
         {
-            SpriteRenderer mySprite = GetComponent<SpriteRenderer>();
-            mySprite.color = new Color(0f, 0f, 0f, .1f);
+            GetComponent<Animator>().SetBool("Destroy", true);
+            Invoke("DestroyMatches", 1);
         }
-        StartCoroutine(SwipeEmptyTile());
+    }
+
+    private void DestroyMatches()
+    {
+        board.DestroyMatches();
     }
 
     private void OnMouseDown()
@@ -83,7 +89,7 @@ public class Dot : MonoBehaviour
     {
         swipeAngle = Mathf.Atan2(finalTouchPosition.y - firstTouchPosition.y, finalTouchPosition.x - firstTouchPosition.x) * 180 / Mathf.PI;
         MovePieces();
-        FindMatches();
+
     }
 
     void MovePieces()
@@ -157,6 +163,7 @@ public class Dot : MonoBehaviour
 
     private IEnumerator SwipeEmptyTile()
     {
+        yield return new WaitForSecondsRealtime(1.5f);
         if (row > 0)
         {
             GameObject downDot = board.allDots[column, row - 1];
@@ -164,8 +171,9 @@ public class Dot : MonoBehaviour
             {
                 downDot.GetComponent<Dot>().row++;
                 row--;
+                board.allDots[column, row] = this.gameObject;
+                board.allDots[column, row + 1] = downDot;
             }
         }
-        yield return new WaitForSecondsRealtime(.4f);
     }
 }

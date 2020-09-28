@@ -24,12 +24,12 @@ public class SpawnBalloon : MonoBehaviour
             float posistionX;
             int directionBallooon = Random.Range(0, 2);
             if (directionBallooon >= choicePointSpawn)
-                posistionX = -spawnPointX + 2;
+                posistionX = -spawnPointX + 3;
             else
                 posistionX = spawnPointX;
 
             //Spawn balloons 
-            Vector3 positionSpawn = new Vector3(posistionX , Random.Range(0, spawnPointY), 9);
+            Vector3 positionSpawn = new Vector3(posistionX , Random.Range(spawnPointY / 2, spawnPointY), 9);
             Instantiate(balloon, positionSpawn, Quaternion.identity);
             yield return new WaitForSeconds(Random.Range(2, 4));
         }

@@ -9,12 +9,12 @@ public class MotionBalloon : MonoBehaviour
     private double variableForSine = Math.PI;
     public float speedForSine, speedInY;
     const int turnSpeed = -1;
-    const float balloonLife = 5f;
+    const float balloonLife = 6f;
 
     void Start()
     {
         //Random choose ballooons speed 
-        speed = UnityEngine.Random.Range(2, 4);
+        speed = UnityEngine.Random.Range(2, 3);
         if (transform.position.x > 0) speed *= turnSpeed;
 
     }
