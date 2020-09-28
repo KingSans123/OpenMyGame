@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿    using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using UnityEngine;
@@ -58,7 +58,6 @@ public class Dot : MonoBehaviour
 
         transform.position = new Vector3(transform.position.x, transform.position.y, -transform.position.x - transform.position.y);
 
-        StartCoroutine(SwipeEmptyTile());
         StartCoroutine(SwipeEmptyTile());
 
 
@@ -164,7 +163,7 @@ public class Dot : MonoBehaviour
 
     private IEnumerator SwipeEmptyTile()
     {
-        yield return new WaitForSecondsRealtime(1.5f);
+        yield return new WaitForSecondsRealtime(2f);
         int quantityEmpty = 0; 
         if (this.gameObject.tag != "Empty")
         {
