@@ -27,6 +27,7 @@ public class Board : MonoBehaviour
 
     void Update()
     {
+
         CheckingForAllEmpty();
         if (allDotsIsEmpty)
         {
@@ -120,7 +121,8 @@ public class Board : MonoBehaviour
             for (int j = 0; j < height; j++)
             {
                 Vector2 tempPosition = new Vector2(i, j);
-                if (allDots[i, j] != dots[0]) DestroyMatchesAt(i, j);
+                if (allDots[i, j] != dots[0])
+                    DestroyMatchesAt(i, j);
             }
     }
 }

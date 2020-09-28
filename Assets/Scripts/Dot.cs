@@ -7,7 +7,7 @@ public class Dot : MonoBehaviour
 {
     [Header("Board Variables")]
     public int column, row, targetX, targetY;
-    public bool isMatched = false;
+    public bool isMatched = false, isSwipe = true;
 
     private GameObject otherDot;
     private Board board; 
@@ -59,6 +59,8 @@ public class Dot : MonoBehaviour
         transform.position = new Vector3(transform.position.x, transform.position.y, -transform.position.x - transform.position.y);
 
         StartCoroutine(SwipeEmptyTile());
+        StartCoroutine(SwipeEmptyTile());
+
 
         FindMatches();
         if (isMatched)
@@ -89,7 +91,6 @@ public class Dot : MonoBehaviour
     {
         swipeAngle = Mathf.Atan2(finalTouchPosition.y - firstTouchPosition.y, finalTouchPosition.x - firstTouchPosition.x) * 180 / Mathf.PI;
         MovePieces();
-
     }
 
     void MovePieces()
@@ -164,15 +165,25 @@ public class Dot : MonoBehaviour
     private IEnumerator SwipeEmptyTile()
     {
         yield return new WaitForSecondsRealtime(1.5f);
-        if (row > 0)
+        int quantityEmpty = 0; 
+        if (this.gameObject.tag != "Empty")
         {
-            GameObject downDot = board.allDots[column, row - 1];
-            if (downDot.tag == "Empty" && this.gameObject.tag != "Empty")
+            if (row > 0)
             {
-                downDot.GetComponent<Dot>().row++;
-                row--;
-                board.allDots[column, row] = this.gameObject;
-                board.allDots[column, row + 1] = downDot;
+                GameObject downDot;
+                for (int i = 0; i < row; i++)
+                {
+                    downDot = board.allDots[column, i];
+                    if (downDot.tag == "Empty") quantityEmpty++; 
+                }
+                for (int i = quantityEmpty; i > 0; i--)
+                {
+                    downDot = board.allDots[column, row - 1];
+                    downDot.GetComponent<Dot>().row++;
+                    row--;
+                    board.allDots[column, row] = this.gameObject;
+                    board.allDots[column, row + 1] = downDot;
+                }
             }
         }
     }

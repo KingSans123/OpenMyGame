@@ -70,8 +70,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28df0d68d9448c34a8a060139c08fb90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  column: 0
-  row: 50
+  column: 2
+  row: 1019
   targetX: 0
   targetY: 0
   isMatched: 0
